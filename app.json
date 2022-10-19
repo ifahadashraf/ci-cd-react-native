@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "ci-cd-react-native",
+    "slug": "ci-cd-react-native",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "ci-cd-react-native"
+}
