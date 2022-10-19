@@ -19,11 +19,24 @@ jobs:
       - name: Install npm dependencies
         run: |
           npm install
-      - name: Build Android Release
+      - name: Build Android Release for dev env
         run: |
           cd android && ./gradlew assembleRelease
-      - name: Upload Artifact
+        env:
+          TEST: dev
+      - name: Upload Artifact for dev ENV
         uses: actions/upload-artifact@v1
         with:
-          name: app-release.apk
+          name: dev-app-release.apk
           path: android/app/build/outputs/apk/release/
+          
+      - name: Build Android Release for prod env
+        run: |
+          cd android && ./gradlew assembleRelease
+        env:
+          TEST: prod
+      - name: Upload Artifact for prod env
+        uses: actions/upload-artifact@v1
+        with:
+          name: prod-release.apk
+          path: android/app/build/outputs/apk/release/          
